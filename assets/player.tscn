@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://hyq6u45yltn5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fdrta"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdrta"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_674bt"]
+material = SubResource("StandardMaterial3D_fdrta")
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1319887793]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=745664229]
+shape = SubResource("BoxShape3D_fdrta")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=896121399]
+mesh = SubResource("BoxMesh_674bt")
+
+[node name="Head" type="Node3D" parent="." unique_id=2064801987]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=25400996]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)
