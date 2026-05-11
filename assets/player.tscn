@@ -1,23 +1,28 @@
 [gd_scene format=3 uid="uid://hyq6u45yltn5"]
 
+[ext_resource type="Script" uid="uid://b3pi1jb46g86j" path="res://scripts/player.gd" id="1_3mip4"]
+[ext_resource type="PackedScene" uid="uid://dc1o0wst2m060" path="res://assets/models/space_ship2.blend" id="1_674bt"]
+[ext_resource type="Script" uid="uid://bc1s412x60vrv" path="res://scripts/camera.gd" id="3_insbl"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdrta"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdrta"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_674bt"]
-material = SubResource("StandardMaterial3D_fdrta")
+size = Vector3(12, 2, 19)
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1319887793]
+motion_mode = 1
+script = ExtResource("1_3mip4")
+speed = null
+
+[node name="space_ship2" parent="." unique_id=432911435 instance=ExtResource("1_674bt")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=745664229]
 shape = SubResource("BoxShape3D_fdrta")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=896121399]
-mesh = SubResource("BoxMesh_674bt")
+[node name="CameraPivot" type="Node3D" parent="." unique_id=209586311]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0)
+script = ExtResource("3_insbl")
 
-[node name="Head" type="Node3D" parent="." unique_id=2064801987]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0, 0, 0)
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=63138546]
+spring_length = 20.0
+margin = 0.2
 
-[node name="Camera3D" type="Camera3D" parent="Head" unique_id=25400996]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=25400996]
