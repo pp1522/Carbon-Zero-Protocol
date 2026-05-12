@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://hyq6u45yltn5" path="res://assets/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://d4i5a62rk6i66" path="res://assets/skybox/panorama_image.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://wypay5qcijxt" path="res://assets/sun.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://b4sd063876bpg" path="res://assets/earth.tscn" id="4_lbhrr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lnu2h"]
 panorama = ExtResource("1_yqjtg")
@@ -16,8 +17,6 @@ sky = SubResource("Sky_yqjtg")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_uwrxv"]
-
 [node name="Game" type="Node3D" unique_id=2024903839]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1473887426]
@@ -30,10 +29,8 @@ shadow_enabled = true
 [node name="CharacterBody3D" parent="." unique_id=1319887793 instance=ExtResource("1_uwrxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=1169356305]
-transform = Transform3D(28.08, 0, 0, 0, 1, 0, 0, 0, 28.019825, 0, 0, 0)
-use_collision = true
-mesh = SubResource("BoxMesh_uwrxv")
-
 [node name="Sun" parent="." unique_id=606923252 instance=ExtResource("3_lnu2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1625.3353, 23.816917, -2249.1572)
+
+[node name="Earth" parent="." unique_id=594510010 instance=ExtResource("4_lbhrr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0932484, -422.78278, -335.66592)
